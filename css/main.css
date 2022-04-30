@@ -1,0 +1,185 @@
+:root {
+  --background: #202020;
+  --text: #F8F8FF;
+  --input-task-background: #000080;
+  --title-background: #FF0000;
+  --check-on: grey;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+  background-color: var(--background);
+}
+
+:root {
+  --background: #202020;
+  --text: #F8F8FF;
+  --input-task-background: #000080;
+  --title-background: #FF0000;
+  --check-on: grey;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  width: 30%;
+  height: auto;
+}
+
+.container .title {
+  background-color: var(--title-background);
+  padding: 10px;
+  color: var(--text);
+}
+
+.container .title h1 {
+  font-size: 2.1rem;
+}
+
+.container .task_field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  text-align: center;
+  padding: 15px;
+  background-color: var(--input-task-background);
+}
+
+.container .task_field .input_task {
+  border: none;
+  background-color: var(--input-task-background);
+  border-bottom: 2px solid grey;
+  width: 85%;
+  font-size: 1.6rem;
+  color: var(--text);
+}
+
+.container .task_field .input_task:focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0;
+          box-shadow: 0 0 0 0;
+}
+
+.container .task_field #btnAddTask {
+  background: none;
+  border: none;
+  color: wheat;
+  width: 4%;
+  cursor: pointer;
+}
+
+.container .todo_list {
+  background-color: var(--input-task-background);
+  list-style: none;
+  color: var(--text);
+}
+
+.container .todo_list .task_list {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .todo_list .task_list #btnCheck {
+  background: none;
+  border: none;
+  color: wheat;
+  width: 4%;
+  cursor: pointer;
+}
+
+.container .todo_list .task_list span {
+  font-size: 1.4rem;
+  width: 80%;
+}
+
+.container .todo_list .task_list input {
+  border: none;
+  background-color: var(--input-task-background);
+  border-bottom: 2px solid grey;
+  width: 80%;
+  font-size: 1.6rem;
+  color: var(--text);
+}
+
+.container .todo_list .task_list input:focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0;
+          box-shadow: 0 0 0 0;
+}
+
+.container .todo_list .task_list #btnEdit {
+  background: none;
+  border: none;
+  color: wheat;
+  width: 4%;
+  cursor: pointer;
+}
+
+.container .todo_list .task_list #btnRemove {
+  background: none;
+  border: none;
+  color: wheat;
+  width: 4%;
+  cursor: pointer;
+}
+
+.container .todo_list .done {
+  background-color: var(--check-on);
+  opacity: 0.5;
+}
+
+.container .todo_list .hidden {
+  display: none;
+}
+
+@media (max-width: 440px) {
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    background-color: white;
+    width: 95%;
+    height: auto;
+  }
+  .container .todo_list .task_list #btnCheck {
+    width: 7%;
+    padding-right: 8%;
+    padding-left: 2%;
+  }
+  .container .todo_list .task_list #btnEdit {
+    width: 7%;
+    padding-right: 10%;
+  }
+  .container .todo_list .task_list #btnRemove {
+    width: 7%;
+    padding-right: 8%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,148 @@
+@import  'base';
+@import  'variables';
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 30%;
+    height: auto;
+
+    .title {
+        background-color: var(--title-background);
+        padding: 10px;
+        color: var(--text);
+
+        h1 {
+            font-size: 2.1rem;
+            
+        }
+    }
+
+    .task_field {
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        padding: 15px;
+        background-color: var(--input-task-background);
+
+        .input_task {
+            border: none;
+            background-color: var(--input-task-background);
+            border-bottom: 2px solid grey;
+            width: 85%;
+            font-size: 1.6rem;
+            color: var(--text);
+            &:focus {
+                outline: 0;
+                box-shadow: 0 0 0 0;    
+            }
+        }
+
+        #btnAddTask {
+            background: none;
+            border: none;
+            color: wheat;
+            width: 4%;
+            cursor: pointer; 
+        }
+    }
+
+    .todo_list {
+        background-color: var(--input-task-background);
+        list-style: none;
+        color: var(--text);
+        .task_list {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            #btnCheck {
+                background: none;
+                border: none;
+                color: wheat;
+                width: 4%;
+                cursor: pointer;
+            }
+           
+            span {
+                font-size: 1.4rem;
+                width: 80%;
+            }
+
+            input {
+                border: none;
+            background-color: var(--input-task-background);
+            border-bottom: 2px solid grey;
+            width: 80%;
+            font-size: 1.6rem;
+            color: var(--text);
+            &:focus {
+                outline: 0;
+                box-shadow: 0 0 0 0;    
+            }
+            }
+            #btnEdit {
+                background: none;
+                border: none;
+                color: wheat;
+                width: 4%;
+                cursor: pointer; 
+            }
+            #btnRemove {
+                background: none;
+                border: none;
+                color: wheat;
+                width: 4%;
+                cursor: pointer;
+            }
+        }
+        .done {
+            background-color: var(--check-on);
+            opacity: 0.5;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+
+    }
+
+}
+
+@media (max-width: 440px) {
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        width: 95%;
+        height: auto;
+
+        .todo_list {
+            .task_list {
+                #btnCheck {
+                    width: 7%;
+                    padding-right: 8%;
+                    padding-left: 2%;
+                }
+
+                #btnEdit {
+                    width: 7%;
+                    padding-right: 10%;
+                }
+
+                #btnRemove {
+                    width: 7%;
+                    padding-right: 8%;
+                }
+            }
+        }
+    }
+}
