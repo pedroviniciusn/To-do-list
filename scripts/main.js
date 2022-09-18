@@ -1,6 +1,6 @@
 const Main = {
 
-    tasks: [],
+    tasksToDo: [],
     
     init: function() {
         
@@ -49,9 +49,13 @@ const Main = {
     },
 
     getStoraged: function() {
-        const tasks = localStorage.getItem('tasks');
-        
-        this.tasks = JSON.parse(tasks);
+        if(!localStorage.getItem('tasks')) {
+            return 
+        } else {
+            const tasks = localStorage.getItem('tasks');
+            this.tasksToDo = JSON.parse(tasks);
+        }   
+        console.log(this.tasksToDo)
     },
 
     getTaskHtml: function(tasks) {
@@ -65,13 +69,12 @@ const Main = {
         `
     },
 
-    buildTasks: function() {
-        let html = '' ;
+    buildTasks: function() { 
+        let html = ''
 
-        this.tasks.forEach(item => {
-            html += this.getTaskHtml(item.task)
+        this.tasksToDo.forEach(item => {   
+           html += this.getTaskHtml(item.task)
         })
-        
 
         todoList.innerHTML = html ;
 
@@ -82,7 +85,6 @@ const Main = {
     Events: {
 
         inputTaskKeypress: function(e) {
-
             var key = e.key
         
             key === "Enter"  
@@ -100,17 +102,23 @@ const Main = {
            
             inputTask.value = ''
 
-            this.cacheSelectors()
-            this.bindEvents()
-
+            
             const savedTask = localStorage.getItem('tasks')
             
             const savedTaskObj = JSON.parse(savedTask)
             
-            const tasksObj = [{task: value}, ...savedTaskObj]
-           
-        
-            localStorage.setItem('tasks', JSON.stringify(tasksObj)) 
+            if(!savedTaskObj) {
+                const tasksObj = [{task: value}]
+
+                localStorage.setItem('tasks', JSON.stringify(tasksObj)) 
+            } else {
+                const tasksObj = [{task: value}, ...savedTaskObj]
+                
+                localStorage.setItem('tasks', JSON.stringify(tasksObj)) 
+            }
+            
+            this.cacheSelectors()
+            this.bindEvents()
         },
 
 
@@ -162,7 +170,8 @@ const Main = {
             const value =  e.target.dataset['tasks']
         
 
-            const newTasksValue = this.tasks.filter( tasks => tasks.task !== value)
+            const newTasksValue = this.tasksToDo.filter(tasks => tasks.task !== value)
+            console.log(newTasksValue)
             
             
             localStorage.setItem('tasks', JSON.stringify(newTasksValue))
@@ -170,13 +179,16 @@ const Main = {
             
             li.classList.add('removed')
 
-            
-            
+        
             setTimeout(function(){
                 li.classList.add('hidden')
             },300)
-        }
+
+            this.cacheSelectors()
+            this.bindEvents()
+            this.getStoraged()
         }
     }
+}
     
 Main.init()
