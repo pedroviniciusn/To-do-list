@@ -55,7 +55,6 @@ const Main = {
             const tasks = localStorage.getItem('tasks');
             this.tasksToDo = JSON.parse(tasks);
         }   
-        console.log(this.tasksToDo)
     },
 
     getTaskHtml: function(tasks) {
